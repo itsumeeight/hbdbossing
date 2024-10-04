@@ -1,0 +1,390 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ff536a;
+  background-image: url("5172214.jpg");
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+  }
+  
+  .greeting {
+    text-align: center;
+    margin-top: 75px;
+    font-size: 60px;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Text Gradient */
+    background: linear-gradient(#ffffff, #fc5a8d);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    /* Text Stroke */
+    -webkit-text-stroke: 2px #970e69; /* Stroke color and width */
+    animation: pop 0.8s ease-in-out infinite; /* Animation name, duration, easing function, and infinite loop */
+  }
+
+/* Keyframes for pop animation */
+@keyframes pop {
+  0%, 100% {
+    transform: scale(1); /* Original size */
+  }
+  50% {
+    transform: scale(1.1); /* Scale up */
+  }
+}
+
+
+
+  
+  .cake {
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    margin-top: -70px;
+    margin-left: -125px;
+  }
+  
+  .plate {
+    width: 300px;
+    height: 110px;
+    position: absolute;
+    bottom: -10px;
+    left: -25px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 0 #Cb354e, 0 4px 0 #Cb354e, 0 5px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  .cake > * {
+    position: absolute;
+  }
+  
+  .layer {
+    position: absolute;
+    display: block;
+    width: 250px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #Ffdae9;
+    box-shadow: 0 2px 0px #fc5a8D, 0 4px 0px #fc5a8D, 0 6px 0px #fc5a8D, 0 8px 0px #fc5a8D, 0 10px 0px #fc5a8D, 0 12px 0px #fc5a8D, 0 14px 0px #fc5a8D, 0 16px 0px #fc5a8D, 0 18px 0px #fc5a8D, 0 20px 0px #fc5a8D, 0 22px 0px #Cb354e, 0 24px 0px #Cb354e, 0 26px 0px #Cb354e, 0 28px 0px #Cb354e, 0 30px 0px #Cb354e;
+  }
+  
+  .layer-top {
+    top: 0px;
+  }
+  
+  .layer-middle {
+    top: 33px;
+    width: 260px; /* Widen middle layer to match the plate */
+    left: -5px; /* Center the widened middle layer */
+  }
+  
+  .layer-bottom {
+    top: 66px;
+    width: 270px; /* Widen bottom layer to match the plate */
+    left: -10px; /* Center the widened bottom layer */
+  }
+  
+  .icing {
+    top: 2px;
+    left: 5px;
+    background-color: #f0e4d0;
+    width: 240px;
+    height: 90px;
+    border-radius: 50%;
+  }
+  .icing:before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    bottom: 6px;
+    left: 5px;
+    background-color: #f4ebdc;
+    box-shadow: 0 0 4px #f6efe3, 0 0 4px #f6efe3, 0 0 4px #f6efe3;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .drip {
+   display: block;
+    width: 50px;
+    height: 60px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: #f0e4d0; 
+  }
+  
+  .drip1 {
+    top: 53px;
+    left: 5px;
+    transform: skewY(15deg);
+    height: 48px;
+    width: 40px;
+  }
+  
+  .drip2 {
+    top: 69px;
+    left: 181px;
+    transform: skewY(-15deg);
+  }
+  
+  .drip3 {
+    top: 54px;
+    left: 90px;
+    width: 80px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+  
+  .candle {
+    background-color: #ff98a9;
+    width: 12px;
+    height: 35px;
+    border-radius: 6px/3px;
+    top: -20px;
+    left: 50%;
+    margin-left: -8px;
+    z-index: 10;
+  }
+  .candle:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #Cb354e;
+  }
+  
+  .candle.out .flame {
+    display: none;
+  }
+  
+  .flame {
+    position: absolute;
+    background-color: orange;
+    width: 10px;
+    height: 25px;
+    border-radius: 8px 8px 8px 8px/20px 20px 8px 8px;
+    top: -34px;
+    left: 50%;
+    margin-left: -7.5px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+    transform-origin: 50% 90%;
+    animation: flicker 1s ease-in-out alternate infinite;
+  }
+  
+  @keyframes flicker {
+    0% {
+      transform: skewX(5deg);
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 165, 0, 0.2), 0 0 60px rgba(255, 165, 0, 0.2), 0 0 80px rgba(255, 165, 0, 0.2);
+    }
+    25% {
+      transform: skewX(-5deg);
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+    }
+    50% {
+      transform: skewX(10deg);
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.3), 0 0 60px rgba(255, 165, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.3);
+    }
+    75% {
+      transform: skewX(-10deg);
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4), 0 0 60px rgba(255, 165, 0, 0.4), 0 0 80px rgba(255, 165, 0, 0.4);
+    }
+    100% {
+      transform: skewX(5deg);
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+    }
+  }
+
+  .balloon-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px; /* Start below the viewport */
+    width: 100px;
+    height: 120px;
+    background: radial-gradient(circle, #ff3758 0%, #f3173c); /* Pink gradient balloon */
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    animation: float 10s ease-in infinite;
+    display: flex;
+    justify-content: center;
+}
+
+.balloon:nth-child(1) {
+    left: 10%;
+    animation-duration: 8s;
+    background: radial-gradient(circle, #ff3758 0%, #f3173c); /* Orange balloon */
+}
+
+.balloon:nth-child(2) {
+    left: 30%;
+    animation-duration: 11s;
+    background: radial-gradient(circle, #ff3758 0%, #f3173c); /* Yellow balloon */
+}
+
+.balloon:nth-child(3) {
+    left: 50%;
+    animation-duration: 9s;
+    background: radial-gradient(circle, #ff3758 0%, #f3173c); /* Blue balloon */
+}
+
+.balloon:nth-child(4) {
+    left: 70%;
+    animation-duration: 12s;
+    background: radial-gradient(circle, #ff3758 0%, #f3173c); /* Green balloon */
+}
+
+.balloon:nth-child(5) {
+    left: 90%;
+    animation-duration: 10s;
+    background: radial-gradient(circle, #ff3758 0%, #f3173c); /* Pink balloon */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh); /* Start at bottom */
+    }
+    100% {
+        transform: translateY(-150vh); /* Move to top and beyond */
+    }
+}
+
+/* The string of the balloon */
+.string {
+    width: 2px;
+    height: 100px;
+    background-color: #333; /* Dark string color */
+    position: absolute;
+    top: 120px; /* Align with the bottom of the balloon */
+    animation: wave 2s ease-in-out infinite; /* Apply wave animation */
+}
+
+/* Wavy animation for the string */
+@keyframes wave {
+    0% {
+        transform: translateX(0); /* Centered */
+    }
+    25% {
+        transform: translateX(-3px); /* Move slightly left */
+    }
+    50% {
+        transform: translateX(3px); /* Move slightly right */
+    }
+    75% {
+        transform: translateX(-3px); /* Move slightly left again */
+    }
+    100% {
+        transform: translateX(0); /* Back to center */
+    }
+}
+
+.polaroid {
+  width: 250px; /* Slightly smaller */
+  height: 400px; /* Slightly smaller */
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-family: "Shantell Sans", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "BNCE" 0, "INFM" 0, "SPAC" 0;
+  position: fixed; /* Keeps it fixed */
+  left: 0px; /* Distance from the left edge */
+  top: 0%; /* Vertically centered */
+  transform: rotate(-5deg); /* Slight angle */
+  margin-top: 150px;
+  margin-left: 45px;
+  transition: transform 0.3s ease; /* Animation effect */
+}
+
+.second-polaroid {
+  position: fixed; /* Keeps it fixed */
+  left: 300px; /* Distance from the left edge */
+  top: 10%; /* Vertically centered */
+  transform: rotate(-3deg); /* Slight angle */
+}
+
+.third-polaroid {
+  position: fixed; /* Keeps it fixed */
+  left: 900px; /* Distance from the left edge */
+  top: 10%; /* Adjust this to balance */
+  transform: rotate(3deg); /* Slight angle */
+}
+
+.fourth-polaroid {
+  position: fixed; /* Keeps it fixed */
+  left: 1200px; /* Distance from the left edge */
+  top: 0; /* Adjust this to balance */
+  transform: rotate(5deg); /* Slight angle */
+}
+
+.polaroid:hover {
+  transform: rotate(0deg); /* Straightens out when hovered */
+}
+
+.second-polaroid:hover {
+  transform: rotate(0deg); /* Straightens out when hovered */
+}
+
+.third-polaroid:hover {
+  transform: rotate(0deg); /* Straightens out when hovered */
+}
+
+.fourth-polaroid:hover {
+  transform: rotate(0deg); /* Straightens out when hovered */
+}
+
+.polaroid-image {
+  width: 100%;
+  display: block;
+  border-bottom: 20px solid white; /* Mimic the larger bottom border of Polaroids */
+}
+
+.caption {
+  font-size: 14px;
+  color: #333;
+}
+
+.mic-button {
+  position: fixed; /* Fixed position to stay in the top left corner */
+  top: 20px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  background: transparent; /* Transparent background */
+  border: none; /* No border */
+  color: #fff; /* Icon color */
+  font-size: 30px; /* Adjust the size of the icon */
+  cursor: pointer; /* Pointer cursor on hover */
+  z-index: 10; /* Ensure it stays on top of other elements */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.mic-button:hover {
+  color: #fc5a8d; /* Change color on hover */
+}
